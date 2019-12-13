@@ -15,25 +15,25 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
-    @GetMapping("/api/products")
+    @GetMapping("")
     public ResponseEntity<List<Product>> getList() {
         List<Product> productList = (List<Product>) productService.getList();
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
 
-    @PostMapping("/api/products/add")
+    @PostMapping("/add")
     public ResponseEntity<Void> addProduct(@RequestBody Product product) {
         productService.save(product);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/api/products/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         productService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PutMapping("/api/products/edit")
+    @PutMapping("/edit")
     public ResponseEntity<Product> editProduct(@RequestBody Product product) {
         productService.save(product);
         return new ResponseEntity<>(HttpStatus.OK);
