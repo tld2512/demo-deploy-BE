@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
 @CrossOrigin("*")
+@RestController
 public class ProductController {
     @Autowired
     private IProductService productService;
